@@ -1,0 +1,8 @@
+Buscar imagem da api:
+https://image.tmdb.org/t/p/w300${data?.poster_path}
+
+Buscar por nome:
+search/movie?query=${text}&include_adult=true&language=pt-BR&page=${currentPage}
+
+Buscar por categoria:
+movie/${typeSearch}?language=pt-BR&include_adult=true&page=${currentPage}
