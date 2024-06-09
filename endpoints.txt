@@ -6,3 +6,4 @@ search/movie?query=${text}&include_adult=true&language=pt-BR&page=${currentPage}
 
 Buscar por categoria:
 movie/${typeSearch}?language=pt-BR&include_adult=true&page=${currentPage}
+ = popular
