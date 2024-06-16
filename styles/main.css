@@ -1,5 +1,6 @@
 @import url(./pages/home/list-movies.css);
 @import url(header/header.css);
+@import url(../styles/fav.css);
 
 * {
   margin: 0;
