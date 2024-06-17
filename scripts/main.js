@@ -1,29 +1,59 @@
-import FetchDataMovie from "./functions/fetch-data-movie.js";
+import { FetchDataMovieByCategory } from "./functions/fetch-data-movie.js";
+import initializeSwiper from "./services/swiper-config.js";
 
 // Variaveis
-const containerMovies = document.querySelector("#container-list");
+const carrosselMoviePopular = document.querySelector(
+  "#movie-popular .swiper-wrapper"
+);
+const carrosselTopRated = document.querySelector("#top_rated .swiper-wrapper");
+const carrosselNowPlaying = document.querySelector(
+  "#now_playing .swiper-wrapper"
+);
 
 const createCardMovie = (data) => {
-  const el = document.createElement("a");
-  el.classList.add("card-movie");
-  el.setAttribute("href", "#");
+  const slide = document.createElement("a");
+  slide.classList.add("swiper-slide");
+  slide.setAttribute("href", "#");
+  // slide.setAttribute("href", `${data?.id}`);
 
-  el.innerHTML = `
-    <img class='card-img' src='https://image.tmdb.org/t/p/w300${data?.poster_path}' alt='${data?.original_title}'>
-    <p class='card-description'>${data?.overview}</p>
+  slide.innerHTML = `
+    <article class="card">
+      <img class='img-movie-slide' src='https://image.tmdb.org/t/p/w300${data?.poster_path}' alt='${data?.original_title}'>
+      <p class='card-title'>${data?.original_title}</p>
+    </article>
   `;
 
-  return el;
+  return slide;
 };
 
 window.addEventListener("load", async () => {
   try {
-    const response = await FetchDataMovie();
-    response.results.forEach((data) => {
-      const newElement = createCardMovie(data);
+    const responseMoviesPopular = await FetchDataMovieByCategory("popular");
+    responseMoviesPopular.results.forEach((data) => {
+      const newSlide = createCardMovie(data);
 
-      containerMovies.appendChild(newElement);
+      carrosselMoviePopular.appendChild(newSlide);
     });
+
+    const responseTopRated = await FetchDataMovieByCategory("top_rated");
+    responseTopRated.results.forEach((data) => {
+      const newSlide = createCardMovie(data);
+
+      carrosselTopRated.appendChild(newSlide);
+    });
+
+    const responseMoviesNowPlaying = await FetchDataMovieByCategory(
+      "now_playing"
+    );
+    responseMoviesNowPlaying.results.forEach((data) => {
+      const newSlide = createCardMovie(data);
+
+      carrosselNowPlaying.appendChild(newSlide);
+    });
+
+    initializeSwiper("#movie-popular");
+    initializeSwiper("#top_rated");
+    initializeSwiper("#now_playing");
   } catch (error) {
     console.log(error);
   }

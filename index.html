@@ -22,6 +22,11 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- Carrossel -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
   </head>
   <body>
     <header>
@@ -45,15 +50,59 @@
       </div>
     </header>
     <main>
-      <!-- Conteúdo principal -->
-      <section class="section-movie">
-        <h2 class="subtitle">Populares</h2>
-        <div id="container-list"></div>
+      <!-- Carrossel Principal -->
+      <section class="container-carrossel">
+        <h2 class="carrossel-title">Filmes Populares</h2>
+        <div class="swiper" id="movie-popular">
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+          </div>
+
+          <!-- pagination -->
+          <div class="swiper-pagination"></div>
+
+          <!--navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </section>
+
+      <section class="container-carrossel">
+        <h2 class="carrossel-title">Mais Votados</h2>
+        <div class="swiper" id="top_rated">
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+          </div>
+
+          <!-- pagination -->
+          <div class="swiper-pagination"></div>
+
+          <!--navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </section>
+
+      <section class="container-carrossel">
+        <h2 class="carrossel-title">Lançamentos</h2>
+        <div class="swiper" id="now_playing">
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+          </div>
+
+          <!-- pagination -->
+          <div class="swiper-pagination"></div>
+
+          <!--navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
       </section>
     </main>
     <footer>
       <!-- Rodapé -->
     </footer>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="scripts/main.js" type="module"></script>
 </html>
