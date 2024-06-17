@@ -1,4 +1,12 @@
 @import url(../variables.css);
+@import url(header/header.css);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
 
 header {
   padding: 20px 40px;
@@ -7,6 +15,9 @@ header {
   justify-content: space-between;
 }
 
+body {
+  background-color: #242424;
+}
 
 .logo {
   gap: 0.2em;
@@ -55,4 +66,17 @@ header {
   gap: 2em;
   display: flex;
   align-items: center;
+}
+.error-fav {
+  text-align: center;
+  margin-top: 300px;
+  color: rgb(255, 255, 255);
+}
+
+.error-fav a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 15px;
+
 }

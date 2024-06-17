@@ -1,5 +1,6 @@
 @import url(header/header.css);
 @import url(../styles/pages/home/carrosseus.css);
+@import url(../styles/fav.css);
 
 * {
   margin: 0;
